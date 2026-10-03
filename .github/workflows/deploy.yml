@@ -1,0 +1,48 @@
+name: Deploy portfolio to Netlify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: netlify-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://wahabdev.netlify.app
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate deployment files
+        run: |
+          node --check dist/app.js
+          test -s dist/index.html
+          test -s dist/style.css
+          test -s dist/Abdul-Wahab-Baig-CV.pdf
+      - name: Check deployment credentials
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo '::error::Add NETLIFY_AUTH_TOKEN as a GitHub Actions secret before deploying.'
+            exit 1
+          fi
+      - name: Deploy to wahabdev.netlify.app
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 78aa61b2-ee51-4a11-927c-a52d3dc9e043
+        run: npx --yes netlify-cli@27.10.2 deploy --prod --dir=dist --no-build --message="GitHub main ${GITHUB_SHA}"
