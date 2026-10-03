@@ -11,3 +11,44 @@ const contributionChart=document.querySelector('#contribution-chart');
 function showContributionFallback(){contributionChart.closest('.contribution-scroll').hidden=true;document.querySelector('#contribution-fallback').hidden=false;}
 contributionChart.addEventListener('error',showContributionFallback);
 if(contributionChart.complete && !contributionChart.naturalWidth)showContributionFallback();
+
+// A two-step match-lighting ritual, with keyboard and touch support.
+const lampControl=document.querySelector('#lamp-control');
+const lampPanel=document.querySelector('#lamp-panel');
+const lampAction=document.querySelector('#lamp-action');
+const lampStatus=document.querySelector('#lamp-status');
+let matchLit=false, lampBusy=false;
+const isDark=()=>document.documentElement.dataset.theme==='dark';
+function renderLamp(){
+ const dark=isDark();
+ lampControl.setAttribute('aria-label',dark?'Light the lamp to switch to light mode':'Extinguish the lamp to switch to dark mode');
+ document.querySelector('#lamp-label').textContent=dark?'Light the lamp':'Lamp is lit';
+ document.querySelector('#lamp-instruction').textContent=dark?'Strike a match, then bring its light to the lamp.':'A warm glow for your ideas. Turn off the lamp for a quieter view.';
+ lampAction.textContent=dark?(matchLit?'Light the lamp ↗':'Strike a match ✦'):'Extinguish the lamp';
+ document.querySelector('meta[name="theme-color"]').content=dark?'#171819':'#f7f5f0';
+}
+function setTheme(theme){
+ document.documentElement.dataset.theme=theme;
+ try{localStorage.setItem('portfolio-theme',theme)}catch{}
+ matchLit=false;lampPanel.classList.remove('match-lit','striking');renderLamp();
+}
+function closeLamp(){if(lampBusy)return;lampPanel.hidden=true;lampControl.setAttribute('aria-expanded','false');matchLit=false;lampPanel.classList.remove('match-lit','striking','extinguishing');lampStatus.textContent='';renderLamp();}
+lampControl.addEventListener('click',()=>{if(lampBusy)return;if(!lampPanel.hidden){closeLamp();return}lampPanel.hidden=false;lampControl.setAttribute('aria-expanded','true');renderLamp();lampAction.focus()});
+document.querySelector('#lamp-cancel').addEventListener('click',()=>{closeLamp();lampControl.focus()});
+lampAction.addEventListener('click',()=>{
+ if(lampBusy)return;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ lampBusy=true;lampAction.disabled=true;
+ if(isDark()&&!matchLit){
+  lampPanel.classList.add('striking');lampStatus.textContent='Striking the match…';
+  setTimeout(()=>{matchLit=true;lampPanel.classList.add('match-lit');lampPanel.classList.remove('striking');lampStatus.textContent='The match is lit. Light the lamp when you’re ready.';lampBusy=false;lampAction.disabled=false;renderLamp()},reduced?0:650);
+ }else{
+  const next=isDark()?'light':'dark';lampPanel.classList.add(next==='light'?'lighting':'extinguishing');
+  lampStatus.textContent=next==='light'?'Lighting the lamp…':'Extinguishing the lamp…';
+  setTimeout(()=>{setTheme(next);lampPanel.classList.remove('lighting');lampBusy=false;lampAction.disabled=false;lampStatus.textContent=next==='light'?'Light mode is on.':'Dark mode is on.'},reduced?0:650);
+ }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lampPanel.hidden){closeLamp();lampControl.focus()}});
+document.addEventListener('click',e=>{if(!e.target.closest('.lamp-widget')&&!lampPanel.hidden)closeLamp()});
+window.addEventListener('storage',e=>{if(e.key==='portfolio-theme'&&['dark','light'].includes(e.newValue)){document.documentElement.dataset.theme=e.newValue;matchLit=false;lampPanel.classList.remove('match-lit');renderLamp()}});
+renderLamp();
