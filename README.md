@@ -1,6 +1,6 @@
 # Abdul Wahab Baig — Portfolio
 
-A responsive, buildless portfolio inspired by awrs.me, with original styling and résumé-based content.
+A responsive, buildless portfolio, with original styling and résumé-based content.
 
 ## Local preview
 
