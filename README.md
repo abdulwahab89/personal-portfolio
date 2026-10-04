@@ -41,6 +41,6 @@ Do not enable a second Netlify Git deployment integration alongside this workflo
 
 ## Hero animation
 
-The original SVG characters share an Ajrak and Sindhi Topi over a 22-second, single-play sequence. Hands and accessories use shared coordinates throughout the dressing gestures. The scene holds its final pose; visitors can replay it. Reduced-motion preferences show the dressed final pose immediately, and hidden tabs pause the timeline. Ajrak uses crimson, indigo, and cream geometry; the embroidered Topi includes its characteristic front cutout.
+The original SVG characters share an Ajrak and Sindhi Topi over a 12-second, single-play sequence. Hands and accessories use shared coordinates throughout the dressing gestures. The scene holds its final pose; visitors can replay it. Reduced-motion preferences show the dressed final pose immediately, and hidden tabs pause the timeline. Ajrak uses crimson, indigo, and cream geometry; the embroidered Topi includes its characteristic front cutout.
 
 Cultural visual reference: [Sindhi Topi and Ajrak — Sindhi Association of Metropolitan Chicago](https://www.chicagosindhis.com/2022/04/11/sindhi-topi-and-ajrak/).

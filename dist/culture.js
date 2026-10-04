@@ -4,7 +4,7 @@
  if(!scene)return;
  const $=id=>document.getElementById(id);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const duration=22000;
+ const duration=12000;
  let frame=0,start=0,elapsed=0,playing=false,seen=false;
  const mix=(a,b,t)=>a+(b-a)*t;
  const ease=t=>t*t*(3-2*t);
@@ -19,7 +19,7 @@
   $(id).setAttribute('d',`M${shoulder} Q${mid} ${hand}`);
  }
  function render(ms){
-  const t=ms/1000;
+  const t=(ms/duration)*22;
   const [ax]=track(t,[[0,112],[.8,112],[3.2,270],[4.3,283],[6,294],[9.3,294],[10.5,275],[17.5,275],[20.5,286],[22,286]]);
   const [ix]=track(t,[[0,435],[1.8,435],[3.6,404],[5.5,400],[10,400],[12,389],[17.5,389],[20.5,382],[22,382]]);
   const walking=(t>.8&&t<3.2)||(t>18&&t<20.5);
