@@ -30,6 +30,7 @@ jobs:
       - name: Validate deployment files
         run: |
           node --check dist/app.js
+          node --check dist/culture.js
           test -s dist/index.html
           test -s dist/style.css
           test -s dist/Abdul-Wahab-Baig-CV.pdf

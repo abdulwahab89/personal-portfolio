@@ -14,6 +14,7 @@ Visit http://localhost:4173. No package installation or build is required.
 
 - `dist/index.html`: sections, résumé link, and project showcases.
 - `dist/style.css`: typography, colors, layout, mobile breakpoints, and reduced-motion support.
+- `dist/culture.js`: the hand-guided Sindhi welcome animation, replay, and reduced-motion final pose.
 - `dist/app.js`: project detail content, mobile navigation, active sections, and email copying.
 - `dist/Abdul-Wahab-Baig-CV.pdf`: downloadable source résumé.
 
@@ -37,3 +38,9 @@ The existing Netlify project ID is configured in the workflow. Deployments are
 serialized to avoid overlapping production uploads. GitHub environment approval
 rules, if configured for `production`, may require approval before a run deploys.
 Do not enable a second Netlify Git deployment integration alongside this workflow.
+
+## Hero animation
+
+The original SVG characters share an Ajrak and Sindhi Topi over a 22-second, single-play sequence. Hands and accessories use shared coordinates throughout the dressing gestures. The scene holds its final pose; visitors can replay it. Reduced-motion preferences show the dressed final pose immediately, and hidden tabs pause the timeline. Ajrak uses crimson, indigo, and cream geometry; the embroidered Topi includes its characteristic front cutout.
+
+Cultural visual reference: [Sindhi Topi and Ajrak — Sindhi Association of Metropolitan Chicago](https://www.chicagosindhis.com/2022/04/11/sindhi-topi-and-ajrak/).
