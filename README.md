@@ -12,12 +12,12 @@ Visit http://localhost:4173. No package installation or build is required.
 
 ## Edit
 
-- `dist/index.html`: sections, résumé link, and project illustrations.
+- `dist/index.html`: sections, résumé link, and project showcases.
 - `dist/style.css`: typography, colors, layout, mobile breakpoints, and reduced-motion support.
 - `dist/app.js`: project detail content, mobile navigation, active sections, and email copying.
 - `dist/Abdul-Wahab-Baig-CV.pdf`: downloadable source résumé.
 
-Project illustrations are original CSS concepts, not screenshots of production apps. Experience and contributions are based on the supplied CV. External Google Fonts have local font fallbacks. The contact link opens the visitor's email client; no contact information is stored.
+Project images live in `dist/images/projects/` as optimized WebP assets. GOZOLT Go and GOZOLT Drivers have separate cards and galleries. Animates includes anime interests, preference matching, chat, profiles, and subscription screens. Green Streak uses the supplied wide app showcase. LikeIt and GupZar retain animated phone frames; supplied artwork with existing phone mockups is displayed directly. Galleries support previous/next controls, keyboard arrows, and full-size links. Single-image galleries disable navigation. Experience and contributions are based on the supplied CV; newer product descriptions reflect user-provided details and visible screens without invented metrics. External Google Fonts have local font fallbacks. The contact link opens the visitor's email client; no contact information is stored.
 
 ## Continuous deployment to Netlify
 
