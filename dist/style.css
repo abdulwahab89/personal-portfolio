@@ -86,5 +86,14 @@ body,nav,.contact,dialog,.contribution-card{transition:background-color .6s,colo
 [data-theme="dark"] .culture-scene{--culture-plinth:#383b39;--culture-plinth-top:#464943;background:radial-gradient(ellipse at 50% 60%,#b0ba9120,transparent 70%)}[data-theme="dark"] .culture-ground{fill:#e6d7b6;opacity:.06}
 @media(max-width:1000px){.hero-introduction{grid-template-columns:1fr 1fr}.hero-name h1{font-size:7.7vw}.culture-scene-heading .eyebrow{font-size:6px}.culture-scene figcaption{padding-inline:6px}.culture-kicker{font-size:6px}.culture-scene figcaption p{font-size:10px}}
 @media(max-width:700px){.hero-introduction{grid-template-columns:1fr;gap:20px}.hero-name h1{font-size:14vw}.hero-name>.eyebrow{font-size:9px;margin-bottom:20px}.culture-scene{max-width:480px;width:100%;margin:auto}.culture-scene-heading .eyebrow{font-size:8px}.culture-kicker{font-size:7px}.culture-scene figcaption p{font-size:12px}.hero .intro{padding-top:40px}.hero-bottom{margin-top:28px}.hero-name .spark{width:47px;height:47px}.culture-scene svg{margin-top:-25px}}
-.culture-scene[data-stage="together"] #android-eyes,.culture-scene[data-stage="together"] #ios-eyes{transform-box:fill-box;transform-origin:center;animation:culture-blink 7s ease-in-out infinite}.culture-scene[data-stage="together"] #ios-eyes{animation-delay:1.2s}
+.culture-scene[data-stage="together"] #android-eyes{transform-box:fill-box;transform-origin:center;animation:culture-blink 7s ease-in-out infinite}
 @keyframes culture-blink{0%,45%,49%,100%{transform:scaleY(1)}47%{transform:scaleY(.12)}}
+
+/* Two platform pilots assemble and launch a shared app. */
+.culture-scene{background:radial-gradient(ellipse at 50% 48%,#e5d3db55,transparent 68%)}
+.orbit-lines{stroke:#a591a1;stroke-width:1;opacity:.23}
+.launch-labels{font:500 9px 'DM Sans',sans-serif;letter-spacing:2.5px;fill:var(--muted)}
+#launch-status{font-size:7px;letter-spacing:2px;opacity:.65}
+[data-theme="dark"] .culture-scene{background:radial-gradient(ellipse at 50% 48%,#97658426,transparent 70%)}
+[data-theme="dark"] .orbit-lines{stroke:#dcc2d4;opacity:.2}
+@media(max-width:700px){.culture-scene svg{margin-top:0}}

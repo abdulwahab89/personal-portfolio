@@ -14,7 +14,7 @@ Visit http://localhost:4173. No package installation or build is required.
 
 - `dist/index.html`: sections, résumé link, and project showcases.
 - `dist/style.css`: typography, colors, layout, mobile breakpoints, and reduced-motion support.
-- `dist/culture.js`: the hand-guided Sindhi welcome animation, replay, and reduced-motion final pose.
+- `dist/culture.js`: the Android and Apple app-launch animation, replay, and reduced-motion still.
 - `dist/app.js`: project detail content, mobile navigation, active sections, and email copying.
 - `dist/Abdul-Wahab-Baig-CV.pdf`: downloadable source résumé.
 
@@ -41,6 +41,4 @@ Do not enable a second Netlify Git deployment integration alongside this workflo
 
 ## Hero animation
 
-The original SVG characters share an Ajrak and Sindhi Topi over a 12-second, single-play sequence. Hands and accessories use shared coordinates throughout the dressing gestures. The scene holds its final pose; visitors can replay it. Reduced-motion preferences show the dressed final pose immediately, and hidden tabs pause the timeline. Ajrak uses crimson, indigo, and cream geometry; the embroidered Topi includes its characteristic front cutout.
-
-Cultural visual reference: [Sindhi Topi and Ajrak — Sindhi Association of Metropolitan Chicago](https://www.chicagosindhis.com/2022/04/11/sindhi-topi-and-ajrak/).
+Android and Apple float beside an app that assembles from colored tiles and launches through an orbital field. The 16-second sequence loops, with a replay control. Reduced-motion preferences show a completed static composition; hidden tabs and scenes outside the viewport pause the timeline. All graphics are inline SVG, with no external animation dependencies.
